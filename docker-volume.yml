@@ -1,0 +1,31 @@
+volumes:
+  default:
+    hostpath: ${here}/volumes/default
+    vboxpath: /var/lib/sqlahelper-example/default
+    uid: 999
+    gid: 999
+  default-slave-1:
+    hostpath: ${here}/volumes/default-slave-1
+    vboxpath: /var/lib/sqlahelper-example/default-slave-1
+    uid: 999
+    gid: 999
+  default-slave-2:
+    hostpath: ${here}/volumes/default-slave-2
+    vboxpath: /var/lib/sqlahelper-example/default-slave-2
+    uid: 999
+    gid: 999
+  other:
+    hostpath: ${here}/volumes/other
+    vboxpath: /var/lib/sqlahelper-example/other
+    uid: 999
+    gid: 999
+  other-slave-1:
+    hostpath: ${here}/volumes/other-slave-1
+    vboxpath: /var/lib/sqlahelper-example/other-slave-1
+    uid: 999
+    gid: 999
+  other-slave-2:
+    hostpath: ${here}/volumes/other-slave-2
+    vboxpath: /var/lib/sqlahelper-example/other-slave-2
+    uid: 999
+    gid: 999
