@@ -1,36 +1,48 @@
 default:
   image: mysql:latest
+  expose:
+    - "3306"
   volumes:
-    - /var/lib/sqlahelper-example/default:/var/lib/mysql
+    - /var/lib/sqlahelper-example/default/etc/mysql/conf.d:/etc/mysql/conf.d
+    - /var/lib/sqlahelper-example/default/var/lib/mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: toor
 default-slave-1:
   image: mysql:latest
+  expose:
+    - "3306"
+  links:
+    - default:default.internal
   volumes:
-    - /var/lib/sqlahelper-example/default-slave-1:/var/lib/mysql
+    - /var/lib/sqlahelper-example/default-slave-1/etc/mysql/conf.d:/etc/mysql/conf.d
+    - /var/lib/sqlahelper-example/default-slave-1/var/lib/mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: toor
 default-slave-2:
   image: mysql:latest
   volumes:
-    - /var/lib/sqlahelper-example/default-slave-2:/var/lib/mysql
+    - /var/lib/sqlahelper-example/default-slave-2/etc/mysql/conf.d:/etc/mysql/conf.d
+    - /var/lib/sqlahelper-example/default-slave-2/var/lib/mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: toor
 other:
   image: mysql:latest
   volumes:
-    - /var/lib/sqlahelper-example/other:/var/lib/mysql
+    - /var/lib/sqlahelper-example/other/etc/mysql/conf.d:/etc/mysql/conf.d
+    - /var/lib/sqlahelper-example/other/var/lib/mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: toor
 other-slave-1:
   image: mysql:latest
   volumes:
-    - /var/lib/sqlahelper-example/other-slave-1:/var/lib/mysql
+    - /var/lib/sqlahelper-example/other-slave-1/etc/mysql/conf.d:/etc/mysql/conf.d
+    - /var/lib/sqlahelper-example/other-slave-1/var/lib/mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: toor
 other-slave-2:
   image: mysql:latest
   volumes:
-    - /var/lib/sqlahelper-example/other-slave-2:/var/lib/mysql
+    - /var/lib/sqlahelper-example/other-slave-2/etc/mysql/conf.d:/etc/mysql/conf.d
+    - /var/lib/sqlahelper-example/other-slave-2/var/lib/mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: toor
